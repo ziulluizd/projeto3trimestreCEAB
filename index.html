@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserção de aplicativos nos colégios</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <header>
+        <h1>Relatório de opinião sobre a Inserção de Aplicativos nos Colégios</h1>
+        <nav>
+            <a href="index.html">Mundo</a>
+            <a href="#">Minha Escola</a>
+        </nav>
+    </header>
+    <main class="graficos-section">
+        <section id="graficos-container" class="graficos-container">
+            <div class="graficos-container__texto">
+                <p>
+                    <span> A inserção de aplicativos nas escolas públicas </span> tem se mostrado uma ferramenta eficaz para aprimorar a educação. Esses aplicativos oferecem recursos interativos que estimulam a aprendizagem ativa e permitem acesso a conteúdos de forma dinâmica. Embora a tecnologia ajude a superar a falta de recursos, desafios como a infraestrutura inadequada e a capacitação dos professores ainda precisam ser enfrentados. No entanto, o uso de aplicativos pode contribuir para a inclusão digital dos estudantes, preparando-os para o futuro profissional. 
+                    Veja abaixo os gráficos que mostram o resultado de uma pesquisa sobre a opinião das pessoas em relação ao assunto:
+                </p>
+            </div>
+            <!-- Gráfico de barras -->
+            <div id="grafico-1"></div>
+        </section>
+    </main>
+    <footer>
+        <p>Desenvolvido por Gab Zolet, Nay Gross, Sophi Melo, Lu Debona</p>
+    </footer>
+    <script type="module" src="graficos/common.js"></script>
+    <script type="module" src="informacoesGlobais.js"></script>
+    <script type="module" src="graficos/quantidadeUsuarios.js"></script>
+
+    <script>
+        // Dados do gráfico de barras
+        var trace1 = {
+            x: ['Dentro da escola', 'Mundo'],
+            y: [31, 34],
+            name: 'Apoiam',
+            type: 'bar',
+            marker: {color: '#db6cba'}  // Cor rosa forte para as barras de apoio
+        };
+
+        var trace2 = {
+            x: ['Dentro da escola', 'Mundo'],
+            y: [69, 66],
+            name: 'Não Apoiam',
+            type: 'bar',
+            marker: {color: '#f5a3c7'}  // Cor rosa mais suave para as barras de não apoio
+        };
+
+        var data = [trace1, trace2];
+
+        var layout = {
+            barmode: 'stack',
+            title: 'Opinião sobre a inserção de aplicativos nos colégios',
+            xaxis: {
+                title: '(gráfico autoexplicativo)'
+            },
+            yaxis: {
+                title: 'Porcentagem (%)'
+            },
+            paper_bgcolor: '#f8c8d8',  // Fundo da área do gráfico
+            plot_bgcolor: '#f8c8d8'  // Fundo da área do gráfico
+        };
+
+        // Renderizando o gráfico
+        Plotly.newPlot('grafico-1', data, layout);
+    </script>
+</body>
+</html>
